@@ -6,9 +6,9 @@ import tkinter.simpledialog
 import traceback
 
 from Auth.AuthHandler import Authentication_Authorization
-from Database.DatabaseInterface import Internal_DB, IOHelper
+# from DB.DatabaseInterface import Internal_DB, IOHelper
 
-
+print("INSIDE SET UP")
 
 ##### Connect to database (create new database if it doesn't exist) 
 
