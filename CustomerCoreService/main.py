@@ -1,6 +1,6 @@
 from fastapi import FastAPI 
 
-from Endpoints import Customers, Telemetry, Users
+from .Endpoints import Customers, Telemetry, Users
 
 
 app = FastAPI() 

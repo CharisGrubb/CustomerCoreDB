@@ -1,5 +1,5 @@
 from fastapi import HTTPException
-# from CustomerCoreService.DB.DatabaseInterface import Internal_DB
+from .DB.DatabaseInterface import Internal_DB
 import bcrypt 
 
 

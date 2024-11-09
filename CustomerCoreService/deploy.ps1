@@ -14,8 +14,7 @@ python -m venv .venv
 python -m pip install -r .\requirements.txt
 
 #Run set up
-python "Installation\setup.py"
-
+python "CustomerCoreService\Installation\setup.py"
 
 
 fastapi dev CustomerCoreService\main.py #Set for dev while testing
