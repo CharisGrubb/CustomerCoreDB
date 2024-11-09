@@ -31,8 +31,8 @@ if current_user_version==0:
 
 
 ##Set up encryption key
-db = InternalDBConnection()
-if not IOValidation.Ryptor.check_for_encryption_key():
+db = Internal_DB()
+if not IOHelper.Ryptor.check_for_encryption_key():
     db._update_encryptions() #Will create new encryption key if it doesn't exist, otherwise, it will rotate the key
 elif tkinter.messagebox.askquestion("Rotate Keys?","""Would you like to rotate encryption keys during this update? 
                                         Rotating keys and passwords periodically is part of security hygeine and best practices.""") == 'yes':
@@ -50,7 +50,7 @@ while username is None:
     username = tkinter.simpledialog.askstring("Internal Admin Username",error_msg + "What username would you like for the built in administrative account:")
     #Call username validation
     try:
-        IOValidation.InputOutputValidation.validate_user_name(username)
+        IOHelper.InputOutputValidation.validate_user_name(username)
     except:
         username = None
         error_msg="Invalid username. Please, try again..."
@@ -61,7 +61,7 @@ while pw is None:
                                             \n Password Requirements include at least 1 capital/upper case letter, 1 lower case letter, 1 number, 
                                             and 1 special character [Options: !, @, #, $, %, &, *, +, =, _, or -]""")
         #call password validation
-        IOValidation.InputOutputValidation.validate_user_pw(pw)
+        IOHelper.InputOutputValidation.validate_user_pw(pw)
     except:
         print(traceback.format_exc())
         pw = None
@@ -69,7 +69,7 @@ while pw is None:
 
 
 #hash pw
-pw_hash = AuthHandler.hash_data(pw)
+pw_hash = Authentication_Authorization.hash_data(pw)
 
 
 #store pw in database, creating user
