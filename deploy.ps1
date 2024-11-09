@@ -14,7 +14,7 @@ python -m venv .venv
 python -m pip install -r .\requirements.txt
 
 #Run set up
-python CustomerCoreService\Installation\setup.py
+python "CustomerCoreService\Installation\setup.py"
 
 
 

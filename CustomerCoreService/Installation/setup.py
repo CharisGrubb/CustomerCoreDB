@@ -34,11 +34,6 @@ if current_user_version==0:
 db = Internal_DB()
 if not IOHelper.Ryptor.check_for_encryption_key():
     db._update_encryptions() #Will create new encryption key if it doesn't exist, otherwise, it will rotate the key
-elif tkinter.messagebox.askquestion("Rotate Keys?","""Would you like to rotate encryption keys during this update? 
-                                        Rotating keys and passwords periodically is part of security hygeine and best practices.""") == 'yes':
-    db._update_encryptions() #Will rotate key if it already exists.
-
-#Check for existing admin user that is enabled. 
 
 
 

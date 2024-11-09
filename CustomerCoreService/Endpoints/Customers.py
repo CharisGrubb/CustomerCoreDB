@@ -6,19 +6,24 @@ router = APIRouter()
 
 @router.get("/all_customers")
 async def get_all_customers(): #READ
-    pass
+    
+    return {"results":[]}
 
 @router.get("/customer")
 async def get_customer(): #READ
-    pass
+    return {"results":[]}
 
 @router.post("/customer")
 async def add_customer(): #CREATE
-    pass
+    
+    return {"results":[]}
+
 @router.put("/customer")
 async def update_customer(): #UPDATE
-    pass
+
+    return {"results":[]}
 
 @router.delete("/customer")
 async def remove_customer(user_id:str): #DELETE
-    pass
+    
+    return {"results":[]}
