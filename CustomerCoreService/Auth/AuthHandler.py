@@ -1,5 +1,5 @@
 from fastapi import HTTPException
-
+from Database.DatabaseInterface import Internal_DB
 import bcrypt 
 
 
@@ -29,5 +29,5 @@ class Authentication_Authorization:
 
 
 
-class Auth_DB():
+class Auth_DB(Internal_DB):
     pass
