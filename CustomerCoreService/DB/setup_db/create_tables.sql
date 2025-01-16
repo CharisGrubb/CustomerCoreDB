@@ -22,6 +22,17 @@ CREATE TABLE IF NOT EXISTS Customers(
     
   );
 
+  CREATE TABLE IF NOT EXISTS Sales(
+    customer_id REFERENCES Customers(Customer_Id)
+    ,Sale_Date datetime NOT NULL
+    ,Total_Spent Decimal not null
+    ,Ref_system text --If using amazon front, or own website, in person, etc
+    ,Ref_ID text -- Reference ID for that ref system. Ex: Order number in amazon. 
+    ,Date_entered datetime default CURRENT_TIMESTAMP
+    ,Entered_By text References Users(User_ID)
+    
+  );
+
 CREATE TABLE IF NOT EXISTS logs(
     log_id INTEGER PRIMARY KEY
     ,user_id text REFERENCES Users(User_ID)

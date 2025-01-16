@@ -1,14 +1,19 @@
 
+from CustomerCoreService.DB.setup_db import db_setup
 import sqlite3
 import os
+
 
 #Parent database connection
 class Internal_DB:
     def __init__(self):
-        if os.path.exists("CustomerCoreService/Database/internal_sensor_database.db"):
-            self.conn = sqlite3.connect("CustomerCoreService/Database/internal_sensor_database.db")
+        if os.path.exists("CustomerCoreService\DB\CustomerCoreDB.db"):
+            self.conn = sqlite3.connect("CustomerCoreService\DB\CustomerCoreDB.db")
         else:
-            raise Exception("NO INTERNAL DB", os.getcwd())
+            print("NO INTERNAL DB", os.getcwd())
+            db_setup.create_db()
+            db_setup.update_db()
+
         
     def __convert_results_to_json(self, results,headers:list):
         results_json=[]
