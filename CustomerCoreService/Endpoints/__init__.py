@@ -1,8 +1,7 @@
 
 
-__all__=["Customers","Users", "Telemetry"]
+__all__=["Customers","Users"]
 
 from . import Customers
 from . import Users
-from . import Telemetry 
 

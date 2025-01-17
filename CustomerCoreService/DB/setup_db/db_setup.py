@@ -18,15 +18,15 @@ def create_db():
     print(current_user_version)
     if current_user_version==0:
         #Run initiation and create scripts
-        with open('C:\Tools\CustomerCoreDB\CustomerCoreService\DB\setup_db\create_tables.sql') as sql_file: 
+        with open('CustomerCoreService\\DB\\setup_db\\create_tables.sql') as sql_file: 
             cursor.executescript(sql_file.read()) #Create Tables
             conn.commit() #Commit creation
 
-        with open('C:\Tools\CustomerCoreDB\CustomerCoreService\DB\setup_db\create_indexes.sql') as sql_file: 
+        with open('CustomerCoreService\\DB\\setup_db\\create_indexes.sql') as sql_file: 
             cursor.executescript(sql_file.read()) #Create Tables
             conn.commit() #Commit creation
         
-        with open('C:\Tools\CustomerCoreDB\CustomerCoreService\DB\setup_db\create_stored_procedures.sql') as sql_file: 
+        with open('CustomerCoreService\\DB\setup_db\create_stored_procedures.sql') as sql_file: 
             cursor.executescript(sql_file.read()) #Create Tables
             conn.commit() #Commit creation
 
@@ -34,7 +34,7 @@ def create_db():
 def update_db():
     conn,cursor = connect()
     
-    update_file_paths = os.listdir('CustomerCoreService\DB\setup_db\updates')
+    update_file_paths = os.listdir('CustomerCoreService\\DB\\setup_db\\updates')
     for file in update_file_paths:
         print(file)
 
