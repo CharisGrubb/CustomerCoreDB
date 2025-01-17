@@ -5,10 +5,12 @@ import bcrypt
 
 class Authentication_Authorization:
     def __init__(self):
-        db = Auth_DB()
+        pass
 
     def authenticate_user(self, username:str, password:str):
         if username is None or password is None:
+            raise HTTPException(status_code=401,detail="Incorrect username or password.", headers={"WWWAuthenticate":"Basic"})
+        if not Auth_DB.is_valid_user(username):
             raise HTTPException(status_code=401,detail="Incorrect username or password.", headers={"WWWAuthenticate":"Basic"})
         user_authenticated = False
 
@@ -30,4 +32,7 @@ class Authentication_Authorization:
 
 
 class Auth_DB(Internal_DB):
-    pass
+    
+    @classmethod
+    def is_valid_user(cls, username):
+        return True

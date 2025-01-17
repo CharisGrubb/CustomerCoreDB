@@ -1,7 +1,9 @@
+from Auth.AuthHandler import Authentication_Authorization
 from fastapi import APIRouter, Depends, Header, HTTPException
 from typing import Annotated
 
 router = APIRouter()
+auth_worker = Authentication_Authorization()
 
 @router.get("/all_users", tags=["users"])
 async def get_all_user(): #READ
