@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS Customers(
     
   );
 
-  CREATE TABLE IF NOT EXISTS Sales(
+  CREATE TABLE IF NOT EXISTS Orders(
     customer_id REFERENCES Customers(Customer_Id)
     ,Sale_Date datetime NOT NULL
     ,Total_Spent Decimal not null
