@@ -13,7 +13,9 @@ class Internal_DB:
             print("NO INTERNAL DB", os.getcwd())
             db_setup.create_db()
             db_setup.update_db()
-
+    def get_configuration(self, config_name):
+        
+        return [{}]
         
     def __convert_results_to_json(self, results,headers:list):
         results_json=[]

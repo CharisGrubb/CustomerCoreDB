@@ -4,11 +4,17 @@ erDiagram
 
 CUSTOMERS ||--o{ Orders : bought
 
-Users{user_id}
+Users{
+    uuid user_id
+    }
 
-Customers{customer_id}
+Customers{
+    uuid customer_id
+    }
 
-Orders{customer_id}
+Orders{
+    uuid customer_id
+    }
 
 Logs{}
 
