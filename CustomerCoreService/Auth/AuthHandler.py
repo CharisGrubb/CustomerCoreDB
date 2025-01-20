@@ -1,11 +1,12 @@
 from fastapi import HTTPException
 from DB.DatabaseInterface import Internal_DB
+from Logging.Logger import Logger
 import bcrypt 
 
 
 class Authentication_Authorization:
     def __init__(self):
-        pass
+        self.log = Logger('AUTH')
 
     def authenticate_user(self, username:str, password:str):
         if username is None or password is None:
@@ -36,3 +37,8 @@ class Auth_DB(Internal_DB):
     @classmethod
     def is_valid_user(cls, username):
         return True
+    
+    @classmethod 
+    def get_user_pw_hash(cls, username):
+        pass
+
