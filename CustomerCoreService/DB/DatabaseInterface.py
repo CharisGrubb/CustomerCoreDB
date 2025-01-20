@@ -16,6 +16,12 @@ class Internal_DB:
     def get_configuration(self, config_name):
         
         return [{}]
+    
+    def add_configuration(self, config_name, value):
+        pass
+
+    def update_configuration(self, config_name, new_value):
+        pass
         
     def __convert_results_to_json(self, results,headers:list):
         results_json=[]
