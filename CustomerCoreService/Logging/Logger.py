@@ -1,4 +1,4 @@
-
+from DB.DatabaseInterface import Internal_DB
 
 class Logger:
 
@@ -7,8 +7,16 @@ class Logger:
 
     def log_to_database(self, log_source, message, time_of_log, user = None):
         pass
+    
+    def add_log_to_queue(cls):
+        pass
+
+    def push_queued_logs(cls):
+        pass
 
 
-
-class Logger_DB():
-    pass
+class Logger_DB(Internal_DB):
+    
+    @classmethod 
+    def add_log(cls):
+        pass
