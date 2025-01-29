@@ -6,7 +6,7 @@ import bcrypt
 
 class Authentication_Authorization:
     def __init__(self):
-        self.log = Logger('AUTH')
+        self.log = Logger('AUTH', 'Authorization/Authentication')
 
     def authenticate_user(self, username:str, password:str):
         if username is None or password is None:

@@ -2,8 +2,9 @@ from DB.DatabaseInterface import Internal_DB
 
 class Logger:
 
-    def __init__(self, log_name):
+    def __init__(self, log_name, log_type):
         self.log_name = log_name
+        self.log_type = log_type
 
     def log_to_database(self, log_source, message, time_of_log, user = None):
         pass

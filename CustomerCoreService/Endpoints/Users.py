@@ -25,3 +25,4 @@ async def update_user(): #UPDATE
 @router.delete("/user", tags=["users"])
 async def remove_user(user_id:str): #DELETE
     return {"results":[]}
+

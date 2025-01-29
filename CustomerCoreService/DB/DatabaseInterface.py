@@ -1,5 +1,5 @@
 
-from CustomerCoreService.DB.setup_db import db_setup
+from DB.setup_db import db_setup
 import sqlite3
 import os
 
