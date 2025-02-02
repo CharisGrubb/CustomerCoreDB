@@ -1,16 +1,26 @@
 <html>
 <head>
+   <script type ="text/javascript" src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
     <title>Item Details</title>
     <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
-    <script src="jquery.js"></script> 
-    <script> 
-    $(function(){
-      $("#menu").load("menu.html"); 
-    });
-    </script> 
+ 
+   
 </head>
+
 <body>
-    <h1><a href="{{ url_for('read_item') }}">Item ID: {{ id }}</a></h1>
-    <div id="menu"></div>
+  <script type="text/javascript">
+  fetch('menu')
+  .then(response => response.text())
+  .then(html => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const targetDiv = doc.getElementById('menu');
+    document.getElementById('menu').innerHTML = targetDiv.innerHTML;
+  });
+  </script>
+  
+  <h1><a href="{{ url_for('read_item') }}">Item ID: {{ id }}</a></h1>
+  <div id="menu"></div>
+   
 </body>
 </html>

@@ -1,3 +1,12 @@
+html{
+    font-family: Georgia, serif;
+}
+
 h1 {
     color:blue;
+}
+
+#menu{
+    text-align: left;
+
 }
