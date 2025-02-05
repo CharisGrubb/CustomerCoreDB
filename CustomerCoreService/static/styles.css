@@ -2,11 +2,18 @@ html{
     font-family: Georgia, serif;
 }
 
-h1 {
-    color:blue;
+#header {
+    color:darkblue;
+    background-color:whitesmoke;
+    text-align: left;
+    border-color: black;
+    border-width: 1px;
 }
+
 
 #menu{
     text-align: left;
+    background-color: #36454F;
+    color:whitesmoke;
 
 }

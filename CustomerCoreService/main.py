@@ -41,10 +41,10 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
 async def read_item(request: Request):
-    print('Inside html call')
-    id = 9999
+    total_cust = 101
     return templates.TemplateResponse(
-        request=request, name="index.html", context={"id": id}
+        request=request, name="index.html", context={"total_cust_num": total_cust
+                                                    ,"total_cust_trend":"LOADING..."}
     )
 
 @app.get("/login", response_class=HTMLResponse)

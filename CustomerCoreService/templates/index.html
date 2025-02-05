@@ -19,8 +19,15 @@
   });
   </script>
   
-  <h1><a href="{{ url_for('read_item') }}">Item ID: {{ id }}</a></h1>
+  <div id="header"><h1>Customer Core Database</h1></div>
   <div id="menu"></div>
-   
+  <div id="dashboard">
+    <div class="left_column">
+      <figure>
+        <figcaption>Total Customers in Database: {{total_cust_num}}</figcaption>
+        {{total_cust_trend}}
+      </figure>
+    </div>
+  </div> 
 </body>
 </html>
