@@ -34,6 +34,7 @@ app.include_router(Sales.router)
 
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/templates/images", StaticFiles(directory="templates"), name="images")
 
 
 templates = Jinja2Templates(directory="templates")
@@ -49,12 +50,16 @@ async def read_item(request: Request):
 
 @app.get("/login", response_class=HTMLResponse)
 async def log_in(request: Request):
-    print('Inside html call')
     return templates.TemplateResponse(
         request=request, name="login.html")
 
 @app.get("/menu", response_class=HTMLResponse)
 async def load_menu(request: Request):
-    print('Inside menu call')
     return templates.TemplateResponse(
         request=request, name="menu.html")
+
+
+@app.get("/header", response_class=HTMLResponse)
+async def load_menu(request: Request):
+    return templates.TemplateResponse(
+        request=request, name="header.html")
