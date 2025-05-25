@@ -62,4 +62,4 @@ async def load_menu(request: Request):
 @app.get("/header", response_class=HTMLResponse)
 async def load_menu(request: Request):
     return templates.TemplateResponse(
-        request=request, name="header.html")
+        request=request, name="header.html", context={"user_name":"test username"})
