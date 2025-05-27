@@ -53,6 +53,15 @@ async def log_in(request: Request):
     return templates.TemplateResponse(
         request=request, name="login.html")
 
+@app.get("/logout", response_class=HTMLResponse)
+async def log_in(request: Request):
+
+    #remove cookie session
+
+    #send back to log in page
+    return templates.TemplateResponse(
+        request=request, name="login.html")
+
 @app.get("/menu", response_class=HTMLResponse)
 async def load_menu(request: Request):
     return templates.TemplateResponse(
