@@ -1,25 +1,16 @@
 <html>
 <head>
    <script type ="text/javascript" src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
-    <title>Item Details</title>
+    <title>Customer Core</title>
     <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+    
  
    
 </head>
 
 <body>
-  <script type="text/javascript">
-  fetch('menu')
-  .then(response => response.text())
-  .then(html => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
-    const targetDiv = doc.getElementById('menu');
-    document.getElementById('menu').innerHTML = targetDiv.innerHTML;
-  });
-  </script>
-  
-  <div id="header"><h1>Customer Core Database</h1></div>
+  <script type="text/javascript" src="{{ url_for('static', path='/functions.js') }}"></script>
+  <div id="header"></div>
   <div id="menu"></div>
   <div id="dashboard">
     <div class="left_column">
