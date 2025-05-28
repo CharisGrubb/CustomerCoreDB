@@ -54,7 +54,7 @@ async def log_in(request: Request):
         request=request, name="login.html")
 
 @app.get("/logout", response_class=HTMLResponse)
-async def log_in(request: Request):
+async def log_out(request: Request):
 
     #remove cookie session
 

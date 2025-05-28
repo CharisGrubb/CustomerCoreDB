@@ -26,6 +26,12 @@ class DataHandler:
     def get_customer_orders(self):
         pass
 
+    def get_num_customers(self):
+        return 0
+    
+    def get_num_cust_trend(self):
+        pass
+
 
 
 

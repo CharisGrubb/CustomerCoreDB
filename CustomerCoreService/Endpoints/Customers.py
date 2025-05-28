@@ -7,7 +7,7 @@ router = APIRouter()
 @router.get("/all_customers")
 async def get_all_customers(): #READ
     
-    return {"results":[]}
+    return {"results":[], "total":0}
 
 @router.get("/customer")
 async def get_customer(customer_id:str): #READ
