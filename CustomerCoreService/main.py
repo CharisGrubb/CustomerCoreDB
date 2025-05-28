@@ -1,7 +1,7 @@
 from Endpoints import Customers, Users, Sales
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from opentelemetry import sdk, trace
@@ -18,7 +18,7 @@ trace_provider = trace.get_tracer_provider()
 app = FastAPI() 
 FastAPIInstrumentor.instrument_app(app)
 
-origins = ["http://localhost"
+origins = ["http://localhost" 
            , "http://localhost:8000"
            ,"https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"]
 
@@ -62,6 +62,14 @@ async def log_in(request: Request):
     return templates.TemplateResponse(
         request=request, name="login.html")
 
+@app.get("/reports", response_class=HTMLResponse)
+async def log_in(request: Request):
+    return templates.TemplateResponse(
+        request=request, name="reports.html")
+
+
+
+#Inner calls for sub pieces
 @app.get("/menu", response_class=HTMLResponse)
 async def load_menu(request: Request):
     return templates.TemplateResponse(
@@ -70,5 +78,8 @@ async def load_menu(request: Request):
 
 @app.get("/header", response_class=HTMLResponse)
 async def load_menu(request: Request):
-    return templates.TemplateResponse(
-        request=request, name="header.html", context={"user_name":"test username"})
+    return templates.TemplateResponse(request=request, name="header.html", context={"user_name":"test username"})
+
+@app.get('/favicon.ico', include_in_schema=False)
+async def favicon(request:Request):
+    return FileResponse('templates/images/favicon.ico')

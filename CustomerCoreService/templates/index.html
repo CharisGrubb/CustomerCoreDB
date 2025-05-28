@@ -3,13 +3,13 @@
    <script type ="text/javascript" src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
     <title>Customer Core</title>
     <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
-    
- 
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
    
+ 
 </head>
 
 <body>
-  <script type="text/javascript" src="{{ url_for('static', path='/functions.js') }}"></script>
+  
   <div id="header"></div>
   <div id="menu"></div>
   <div id="dashboard">
@@ -20,5 +20,6 @@
       </figure>
     </div>
   </div> 
+  <script type="text/javascript" src="{{url_for('static', path='/functions.js')}}"></script>
 </body>
 </html>
