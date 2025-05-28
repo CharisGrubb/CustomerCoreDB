@@ -70,16 +70,16 @@ async def log_in(request: Request):
 
 
 #Inner calls for sub pieces
-@app.get("/menu", response_class=HTMLResponse)
+@app.get("/menu", response_class=HTMLResponse, include_in_schema=False)
 async def load_menu(request: Request):
     return templates.TemplateResponse(
         request=request, name="menu.html")
 
 
-@app.get("/header", response_class=HTMLResponse)
+@app.get("/header", response_class=HTMLResponse, include_in_schema=False)
 async def load_menu(request: Request):
     return templates.TemplateResponse(request=request, name="header.html", context={"user_name":"test username"})
 
 @app.get('/favicon.ico', include_in_schema=False)
-async def favicon(request:Request):
+async def favicon():
     return FileResponse('templates/images/favicon.ico')
