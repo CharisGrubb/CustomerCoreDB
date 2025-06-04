@@ -1,9 +1,17 @@
 html{
     font-family: Georgia, serif;
 }
-
+body{
+    display: grid;
+    grid-template-columns: 10% 40% 40% auto;
+    grid-template-rows: 10% auto auto auto 10%;
+    column-gap: 1%;
+    row-gap: 1%;
+    background-color: rgb(42, 39, 66);
+    color: whitesmoke;
+}
 #header {
-    color:darkblue;
+    color:rgb(23, 11, 32);
     background-color:whitesmoke;
     text-align: left;
     border-color: black;
@@ -13,7 +21,18 @@ html{
 
 #menu{
     text-align: left;
-    background-color: #36454F;
-    color:whitesmoke;
+    display: grid;
+    grid-template-columns: 33% 33% auto;
+    grid-template-rows: 20% 20% 20% 20% auto;
 
+}
+
+a.menuitem{
+    border-radius: 50%;
+    background-color: whitesmoke;
+    color: #36454F
+}
+
+a.menuitem:hover{
+    background-color: pink;
 }
