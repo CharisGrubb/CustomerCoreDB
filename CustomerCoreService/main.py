@@ -30,6 +30,8 @@ app.add_middleware(CORSMiddleware
 
 app.include_router(Customers.router)
 app.include_router(Users.router)
+
+
 app.include_router(Sales.router)
 
 
