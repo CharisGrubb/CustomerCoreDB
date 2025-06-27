@@ -18,14 +18,13 @@ body{
     text-align: left;
     border-color: black;
     border-width: 1px;
-    row-gap: 1%;
+    padding-bottom: 1px;
 }
 
 
 #menu{
     grid-column: 1;
     grid-row: 2/4;
-    text-align: left;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 25% 25% 25%  auto;
@@ -40,7 +39,10 @@ body{
     border-color: whitesmoke;
     border-width: 1px;
 }
-
+a{
+    display:flex;
+    align-items: center;
+}
 a.menuitem{
     border-radius: 50%;
     background-color: whitesmoke;
@@ -51,4 +53,16 @@ a.menuitem{
 
 a.menuitem:hover{
     background-color: rgb(253, 186, 0);
+}
+
+h1{
+    margin:0%;
+}
+h4{
+    margin:0%;
+}
+h4.username:hover{
+    text-decoration: underline;
+    text-decoration-color: rgb(253, 186, 0);
+    color: rgb(253, 186, 0);
 }
