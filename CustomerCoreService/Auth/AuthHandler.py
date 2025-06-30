@@ -1,5 +1,6 @@
 from fastapi import HTTPException
 from DB.DatabaseInterface import Internal_DB
+from DB import IOHelper
 from Logging.Logger import Logger
 import bcrypt 
 
@@ -41,4 +42,13 @@ class Auth_DB(Internal_DB):
     @classmethod 
     def get_user_pw_hash(cls, username):
         pass
+
+    @classmethod 
+    def create_session(cls):
+        pass
+
+    @classmethod
+    def validate_session(cls, sess_id):
+        pass
+
 
