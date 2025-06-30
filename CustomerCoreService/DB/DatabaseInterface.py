@@ -1,18 +1,19 @@
+from DB.DB_Models import Base
+from sqlalchemy import create_engine
+from sqlalchemy.orm import  sessionmaker
 
-from DB.setup_db import db_setup
-import sqlite3
-import os
+
+class DB:
+    def __init__(self, location = "'sqlite:///customercore.db'"):
+        self.engine = create_engine(location) 
+
+        # Create the table in the database
+        Base.metadata.create_all(self.engine)
+
+        # Create a session factory
+        self.Session = sessionmaker(bind=self.engine)
 
 
-#Parent database connection
-class Internal_DB:
-    def __init__(self):
-        if os.path.exists("CustomerCoreService\DB\CustomerCoreDB.db"):
-            self.conn = sqlite3.connect("CustomerCoreService\DB\CustomerCoreDB.db")
-        else:
-            print("NO INTERNAL DB", os.getcwd())
-            db_setup.create_db()
-            db_setup.update_db()
     def get_configuration(self, config_name):
         
         return [{}]
