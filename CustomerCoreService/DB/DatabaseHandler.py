@@ -1,26 +1,26 @@
-from DB.DatabaseInterface import Internal_DB
+from DB.DatabaseInterface import DB
 from DB.IOHelper import IOValidation, Ryptor
 
 
 
-
+#TO manage the flow of data to and from internal and external DBs
 class DataHandler:
     
     def __init__(self):
-        self.internal_db = Internal_DB()
+        self.internal_db = DB()
         external_dbs_configs = self.internal_db.get_configuration('External DB')
         self.external_dbs = []
         for ex_db in external_dbs_configs:
-            #Set up each external db and append to list
-            pass
+            self.external_dbs.append(DB(location=ex_db['Connection String']))
+
     #Getters
-    def get_user(self):
+    def get_user(self): #User stuff only to iternal
         pass
 
     def get_all_users(self):
         pass
 
-    def get_customer(self):
+    def get_customer(self): 
         pass
 
     def get_customer_orders(self):
