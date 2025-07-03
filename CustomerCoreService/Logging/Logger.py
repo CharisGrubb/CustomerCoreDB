@@ -1,4 +1,4 @@
-from DB.DatabaseInterface import Internal_DB
+from DB.DatabaseInterface import DB
 
 class Logger:
 
@@ -16,7 +16,7 @@ class Logger:
         pass
 
 
-class Logger_DB(Internal_DB):
+class Logger_DB(DB):
     
     @classmethod 
     def add_log(cls):

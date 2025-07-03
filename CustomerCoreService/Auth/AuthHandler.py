@@ -1,5 +1,5 @@
 from fastapi import HTTPException
-from DB.DatabaseInterface import Internal_DB
+from DB.DatabaseInterface import DB
 from DB import IOHelper
 from Logging.Logger import Logger
 import bcrypt 
@@ -33,7 +33,7 @@ class Authentication_Authorization:
 
 
 
-class Auth_DB(Internal_DB):
+class Auth_DB(DB):
     
     @classmethod
     def is_valid_user(cls, username):
