@@ -4,19 +4,18 @@ from sqlalchemy.orm import  sessionmaker
 
 
 class DB:
-    def __init__(self, location = "'sqlite:///customercore.db'"):
+    def __init__(self, location = "sqlite:///DB/customercore.db"):
         self.engine = create_engine(location) 
-
         # Create the table in the database
         Base.metadata.create_all(self.engine)
-
+        print("Inside the DB creation constructor")
         # Create a session factory
         self.Session = sessionmaker(bind=self.engine)
 
 
     def get_configuration(self, config_name):
         
-        return [{}]
+        return []
     
     def add_configuration(self, config_name, value):
         pass

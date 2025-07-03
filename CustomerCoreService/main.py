@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from Logging.Logger import Logger
 from opentelemetry import sdk, trace
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
@@ -17,6 +18,7 @@ trace_provider = trace.get_tracer_provider()
 
 app = FastAPI() 
 FastAPIInstrumentor.instrument_app(app)
+log = Logger("Main","Fast API Manager")
 
 origins = ["http://localhost" 
            , "http://localhost:8000"
@@ -28,10 +30,10 @@ app.add_middleware(CORSMiddleware
                    ,allow_methods=["*"] #allow GET, POST, PUT, etc
                    ,allow_headers=["*"]) #FILTER METHODS AND HEADERS LATER AFTER FULLY FUNCTIONAL
 
+
+#API Endpoints
 app.include_router(Customers.router)
 app.include_router(Users.router)
-
-
 app.include_router(Sales.router)
 
 
@@ -43,7 +45,8 @@ templates = Jinja2Templates(directory="templates")
 
 
 @app.get("/", response_class=HTMLResponse)
-async def read_item(request: Request):
+async def home(request: Request):
+    log.log_to_database("home","inside home page",None)
     total_cust = 101
     return templates.TemplateResponse(
         request=request, name="index.html", context={"total_cust_num": total_cust

@@ -1,5 +1,7 @@
 from DB.DatabaseInterface import DB
+from DB import DB_Models
 from DB.IOHelper import IOValidation, Ryptor
+from sqlalchemy.orm import Session
 
 
 
@@ -45,6 +47,13 @@ class DataHandler:
 
     def add_customer_order(self):
         pass
+
+    def add_log(self):
+        with Session(self.internal_db.engine) as sess:
+            new_log = DB_Models.Log()
+            sess.add(new_log)
+            sess.commit()
+
 
     def update_user(self):
         pass
