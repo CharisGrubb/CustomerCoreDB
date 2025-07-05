@@ -1,6 +1,7 @@
-from sqlalchemy import Integer, String, ForeignKey
+from datetime import datetime
+from sqlalchemy import  ForeignKey
 from sqlalchemy.orm import DeclarativeBase,Mapped,mapped_column
-
+from typing import Optional
 
 
 # declarative base class
@@ -15,7 +16,10 @@ class Users(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     username: Mapped[str]
     first_name: Mapped[str] 
+    middle_name: Mapped[Optional[str]] #Optional for distinguishing users
     last_name: Mapped[str] 
+    user_role: Mapped[str]
+    create_date: Mapped[datetime] = mapped_column(default=lambda: datetime.now())
 
     @property 
     def fullname(self):
