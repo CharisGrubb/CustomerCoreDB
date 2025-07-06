@@ -46,7 +46,7 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
-    log.log_to_database("home","inside home page",None)
+    log.log_to_database("home","INFO","inside home page",None)
     total_cust = 101
     return templates.TemplateResponse(
         request=request, name="index.html", context={"total_cust_num": total_cust

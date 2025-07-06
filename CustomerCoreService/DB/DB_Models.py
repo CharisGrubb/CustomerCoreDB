@@ -1,5 +1,5 @@
 from datetime import datetime
-from sqlalchemy import  ForeignKey
+from sqlalchemy import  Column, Integer, ForeignKey
 from sqlalchemy.orm import DeclarativeBase,Mapped,mapped_column
 from typing import Optional
 
@@ -13,7 +13,7 @@ class Base(DeclarativeBase):
 class Users(Base):
     __tablename__ = "users"
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Integer(), primary_key=True)
     username: Mapped[str]
     first_name: Mapped[str] 
     middle_name: Mapped[Optional[str]] #Optional for distinguishing users
@@ -30,12 +30,12 @@ class Users(Base):
 #For managing auth sessions
 class Sessions(Base):
     __tablename__ = "sessions"
-    id:Mapped[str] = mapped_column(primary_key=True)
+    id:Mapped[str] = mapped_column(Integer(), primary_key=True)
 
 #to manage customer information
 class Customer(Base):
     __tablename__ = "customers"
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Integer(), primary_key=True)
     first_name: Mapped[str]
     middle_name: Mapped[Optional[str]]
     last_name: Mapped[str]
@@ -47,14 +47,14 @@ class Customer(Base):
 #To map user to system to sale for reporting and aggregation
 class Sales(Base):
     __tablename__ = "sales"
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Integer(), primary_key=True)
 
 
 #For system logging and view
 class Log(Base):
     __tablename__ = 'logs'
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Integer(), primary_key=True)
     log_name: Mapped[str]
     log_type: Mapped[str]
     log_source: Mapped[str]

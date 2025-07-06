@@ -48,9 +48,14 @@ class DataHandler:
     def add_customer_order(self):
         pass
 
-    def add_log(self):
+    def add_log(self, log_name, log_type, log_source, log_level, log_message, time_of_log, user):
         with Session(self.internal_db.engine) as sess:
-            new_log = DB_Models.Log()
+            new_log = DB_Models.Log(log_name=log_name
+                                    , log_type=log_type
+                                    , log_source=log_source
+                                    , log_level=log_level
+                                    , log_message = log_message
+                                    , log_datetime = time_of_log)
             sess.add(new_log)
             sess.commit()
 
