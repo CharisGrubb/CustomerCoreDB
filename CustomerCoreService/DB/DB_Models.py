@@ -31,6 +31,9 @@ class Users(Base):
 class Sessions(Base):
     __tablename__ = "sessions"
     id:Mapped[str] = mapped_column(Integer(), primary_key=True)
+    user_id: Mapped[Optional[int]] = mapped_column(ForeignKey("users.id"))
+    session_start: Mapped[datetime] = mapped_column(default=lambda: datetime.now())
+    
 
 #to manage customer information
 class Customer(Base):
@@ -48,6 +51,7 @@ class Customer(Base):
 class Sales(Base):
     __tablename__ = "sales"
     id: Mapped[int] = mapped_column(Integer(), primary_key=True)
+    
 
 
 #For system logging and view
@@ -61,3 +65,4 @@ class Log(Base):
     log_level: Mapped[str]
     log_message: Mapped[str]
     log_datetime: Mapped[datetime] = mapped_column(default=lambda: datetime.now())
+    user_id: Mapped[Optional[int]] = mapped_column(ForeignKey("users.id"))
