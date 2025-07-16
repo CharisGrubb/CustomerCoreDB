@@ -2,14 +2,17 @@
     <head>
         <script type ="text/javascript" src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
          <title>Customer Core</title>
-         <link href="{{url_for('static', path='/styles.css') }}" rel="stylesheet">
+         <meta charset="UTF-8" />
+         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+       
          
         
     </head>
 <body>
     <div id="header">
         <link rel="icon" type="image/x-icon" href="{{url_for('images', path='/favicon.ico') }}">
-        <h1>Customer Core Database</h1>
+        <h1 class="text-3xl font-bold">Customer Core Database</h1>
 
         <h4 class="username">User: {{user_name}}</h4>
 </div>
