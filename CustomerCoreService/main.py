@@ -67,6 +67,12 @@ async def log_out(request: Request):
     return templates.TemplateResponse(
         request=request, name="login.html")
 
+
+@app.get("/customers", response_class=HTMLResponse)
+async def log_in(request: Request):
+    return templates.TemplateResponse(
+        request=request, name="customers.html")
+
 @app.get("/reports", response_class=HTMLResponse)
 async def log_in(request: Request):
     return templates.TemplateResponse(
