@@ -78,6 +78,11 @@ async def log_in(request: Request):
     return templates.TemplateResponse(
         request=request, name="reports.html")
 
+@app.get("/users", response_class=HTMLResponse)
+async def log_in(request: Request):
+    return templates.TemplateResponse(
+        request=request, name="users.html")
+
 
 
 #Inner calls for sub pieces
